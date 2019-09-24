@@ -117,7 +117,6 @@
 				70C9948D233A0FD0003F7058 /* View Models */,
 				70C9948E233A0FDD003F7058 /* Views */,
 				70C99473233A0E6B003F7058 /* AppDelegate.swift */,
-				70C994F7233AAF0A003F7058 /* BooksData.xcdatamodeld */,
 				70C99475233A0E6B003F7058 /* SceneDelegate.swift */,
 				70C99481233A0E6E003F7058 /* Info.plist */,
 			);
@@ -211,6 +210,7 @@
 			isa = PBXGroup;
 			children = (
 				70C994FB233AC3C1003F7058 /* PersistenceManager.swift */,
+				70C994F7233AAF0A003F7058 /* BooksData.xcdatamodeld */,
 			);
 			path = "Persistence Service";
 			sourceTree = "<group>";
