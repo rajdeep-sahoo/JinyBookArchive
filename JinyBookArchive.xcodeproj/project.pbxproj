@@ -18,6 +18,8 @@
 		70C99492233A1037003F7058 /* Strings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70C99491233A1037003F7058 /* Strings.swift */; };
 		70C99494233A104B003F7058 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70C99493233A104B003F7058 /* Extensions.swift */; };
 		70C99496233A105C003F7058 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70C99495233A105C003F7058 /* Constants.swift */; };
+		70C99498233A17CB003F7058 /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70C99497233A17CB003F7058 /* HomeViewModel.swift */; };
+		70C9949A233A1ECF003F7058 /* Defaults.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70C99499233A1ECF003F7058 /* Defaults.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -34,6 +36,8 @@
 		70C99491233A1037003F7058 /* Strings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Strings.swift; sourceTree = "<group>"; };
 		70C99493233A104B003F7058 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		70C99495233A105C003F7058 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		70C99497233A17CB003F7058 /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
+		70C99499233A1ECF003F7058 /* Defaults.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Defaults.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -92,6 +96,7 @@
 			isa = PBXGroup;
 			children = (
 				70C99495233A105C003F7058 /* Constants.swift */,
+				70C99499233A1ECF003F7058 /* Defaults.swift */,
 				70C99493233A104B003F7058 /* Extensions.swift */,
 				70C99491233A1037003F7058 /* Strings.swift */,
 				70C9948F233A1026003F7058 /* Utility.swift */,
@@ -117,6 +122,7 @@
 		70C9948D233A0FD0003F7058 /* View Models */ = {
 			isa = PBXGroup;
 			children = (
+				70C99497233A17CB003F7058 /* HomeViewModel.swift */,
 			);
 			path = "View Models";
 			sourceTree = "<group>";
@@ -202,9 +208,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				70C9949A233A1ECF003F7058 /* Defaults.swift in Sources */,
 				70C99490233A1026003F7058 /* Utility.swift in Sources */,
 				70C99494233A104B003F7058 /* Extensions.swift in Sources */,
 				70C99478233A0E6B003F7058 /* HomeViewController.swift in Sources */,
+				70C99498233A17CB003F7058 /* HomeViewModel.swift in Sources */,
 				70C99492233A1037003F7058 /* Strings.swift in Sources */,
 				70C99496233A105C003F7058 /* Constants.swift in Sources */,
 				70C99474233A0E6B003F7058 /* AppDelegate.swift in Sources */,
