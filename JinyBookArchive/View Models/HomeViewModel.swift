@@ -12,14 +12,20 @@ import UIKit
 extension HomeViewController {
     
     func setupViews() {
-        self.navigationItem.title = HOME_SCREEN_TITLE
         setupTableView()
         createBookLibraryButton.isHidden = false
         createBookLibraryButton.setTitleColor(UIColor(rgb: THEME_COLOR), for: .normal)
     }
     
     func refreshView() {
+        self.navigationItem.title = HOME_SCREEN_TITLE
         setupNavigationBar()
+    }
+    
+    func viewIsGoingToDisappear() {
+        if filterSelected == .NoFilter {
+            self.navigationItem.title = " "
+        }
     }
     
     func setupTableView() {
@@ -81,7 +87,7 @@ extension HomeViewController {
         
         switch filterType {
         case .NoFilter:
-            break
+            books = books.sorted(by: { $0.bookTitle.uppercased() < $1.bookTitle.uppercased() })
         case .Author:
             for book in books {
                 let key = String(book.authorName.uppercased())
@@ -115,6 +121,7 @@ extension HomeViewController {
         }
         
         filteredBookArchive = dictionary
+        filteredBookArchiveData = filteredBookArchive.keys.sorted(by: <)
         
         self.tableView.reloadData()
     }
@@ -151,7 +158,7 @@ extension HomeViewController: UITableViewDataSource {
             
         } else {
             let cell = tableView.dequeueReusableCell(withIdentifier: "FilteredBookArchiveCell", for: indexPath) as! FilteredBookArchiveCell
-            cell.label.text = Array(filteredBookArchive.keys)[indexPath.row].capitalized
+            cell.label.text = filteredBookArchiveData[indexPath.row].capitalized
             return cell
         }
     }
@@ -160,7 +167,7 @@ extension HomeViewController: UITableViewDataSource {
         if filterSelected == .NoFilter {
             return books.count
         } else {
-            return filteredBookArchive.keys.count
+            return filteredBookArchiveData.count
         }
         
     }
@@ -179,7 +186,7 @@ extension HomeViewController: UITableViewDelegate {
         if filterSelected == .NoFilter {
             pushToBookInfoVC(book: books[indexPath.row])
         } else {
-            
+            pushToBooksListVC(books: filteredBookArchive[filteredBookArchiveData[indexPath.row].uppercased()]!)
         }
         
     }
@@ -217,6 +224,15 @@ extension HomeViewController {
             let bookInfoVC = storyboard.instantiateViewController(withIdentifier: "BookInfoViewController") as! BookInfoViewController
             bookInfoVC.book = book
             self.navigationController?.pushViewController(bookInfoVC, animated: true)
+        }
+    }
+    
+    func pushToBooksListVC(books: [Book]) {
+        DispatchQueue.main.async {
+            let storyboard: UIStoryboard = UIStoryboard(name: MAIN_STORYBOARD, bundle: nil)
+            let booksListVC = storyboard.instantiateViewController(withIdentifier: "BooksListViewController") as! BooksListViewController
+            booksListVC.books = books
+            self.navigationController?.pushViewController(booksListVC, animated: true)
         }
     }
     

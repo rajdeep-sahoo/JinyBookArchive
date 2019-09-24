@@ -53,6 +53,40 @@
             </objects>
             <point key="canvasLocation" x="1136.25" y="115.14084507042254"/>
         </scene>
+        <!--Books List View Controller-->
+        <scene sceneID="fBD-KZ-cSa">
+            <objects>
+                <viewController storyboardIdentifier="BooksListViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="e2t-X3-s1I" customClass="BooksListViewController" customModule="JinyBookArchive" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="v1H-hP-msU">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="dM2-yP-6Qz">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                <connections>
+                                    <outlet property="dataSource" destination="e2t-X3-s1I" id="wtv-rQ-Nfn"/>
+                                    <outlet property="delegate" destination="e2t-X3-s1I" id="hQG-fG-Aoc"/>
+                                </connections>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="euE-pO-9fc" firstAttribute="bottom" secondItem="dM2-yP-6Qz" secondAttribute="bottom" id="TXh-kk-urF"/>
+                            <constraint firstItem="euE-pO-9fc" firstAttribute="trailing" secondItem="dM2-yP-6Qz" secondAttribute="trailing" id="eua-I1-9bW"/>
+                            <constraint firstItem="dM2-yP-6Qz" firstAttribute="leading" secondItem="euE-pO-9fc" secondAttribute="leading" id="fJK-JA-DFG"/>
+                            <constraint firstItem="dM2-yP-6Qz" firstAttribute="top" secondItem="euE-pO-9fc" secondAttribute="top" id="uUe-ND-ICp"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="euE-pO-9fc"/>
+                    </view>
+                    <connections>
+                        <outlet property="tableView" destination="dM2-yP-6Qz" id="z2G-IP-bcV"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="gEO-3K-Sr7" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="726" y="931"/>
+        </scene>
         <!--Book Info View Controller-->
         <scene sceneID="6Mx-NR-XxN">
             <objects>
@@ -107,7 +141,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Xt8-s4-9Zc" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1672.5" y="930.63380281690138"/>
+            <point key="canvasLocation" x="1571" y="931"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="3T6-MK-aSc">
@@ -125,7 +159,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="kTo-81-6uw" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="138.75" y="115.14084507042254"/>
+            <point key="canvasLocation" x="-107" y="-300"/>
         </scene>
     </scenes>
 </document>

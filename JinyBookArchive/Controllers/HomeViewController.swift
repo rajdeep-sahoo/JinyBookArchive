@@ -17,6 +17,7 @@ class HomeViewController: UIViewController {
     // MARK: - Local Variables
     var books = [Book]()
     var filteredBookArchive: [String: [Book]] = [String: [Book]]()
+    var filteredBookArchiveData: [String] = [String]()
     
     let filterBtn = UIButton(frame: CGRect(x: 0, y: 0, width: 50, height: 20))
     var filterSelected: FilterType = .NoFilter
@@ -32,6 +33,12 @@ class HomeViewController: UIViewController {
         super.viewWillAppear(animated)
         
         refreshView()
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        
+        viewIsGoingToDisappear()
     }
     
     // MARK: - @IBActions

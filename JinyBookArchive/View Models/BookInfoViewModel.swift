@@ -12,6 +12,7 @@ import UIKit
 extension BookInfoViewController {
     
     func setupViews() {
+        self.navigationItem.title = book.bookTitle
         setupNavigationBar()
         setupTableView()
         Utility.shared.setImage(from: book.imageUrl, on: bookImage)
