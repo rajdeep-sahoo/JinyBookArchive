@@ -6,6 +6,8 @@
 //  Copyright © 2019 Rajdeep Sahoo. All rights reserved.
 //
 
+let BASE_URL                                            = "http://android.jiny.mockable.io/getAll"
+
 let APP_NAME                                            = "Jiny Book Archive"
 
 let MAIN_STORYBOARD                                     = "Main"

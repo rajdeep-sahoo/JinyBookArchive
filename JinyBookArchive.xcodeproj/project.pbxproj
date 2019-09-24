@@ -21,6 +21,8 @@
 		70C99496233A105C003F7058 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70C99495233A105C003F7058 /* Constants.swift */; };
 		70C99498233A17CB003F7058 /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70C99497233A17CB003F7058 /* HomeViewModel.swift */; };
 		70C9949A233A1ECF003F7058 /* Defaults.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70C99499233A1ECF003F7058 /* Defaults.swift */; };
+		70C9949F233A24E9003F7058 /* APIManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70C9949E233A24E9003F7058 /* APIManager.swift */; };
+		70C994A1233A25AC003F7058 /* Book.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70C994A0233A25AC003F7058 /* Book.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -40,6 +42,8 @@
 		70C99495233A105C003F7058 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		70C99497233A17CB003F7058 /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
 		70C99499233A1ECF003F7058 /* Defaults.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Defaults.swift; sourceTree = "<group>"; };
+		70C9949E233A24E9003F7058 /* APIManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIManager.swift; sourceTree = "<group>"; };
+		70C994A0233A25AC003F7058 /* Book.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Book.swift; sourceTree = "<group>"; };
 		E644CBD533808B0A840B58BF /* Pods-JinyBookArchive.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-JinyBookArchive.release.xcconfig"; path = "Target Support Files/Pods-JinyBookArchive/Pods-JinyBookArchive.release.xcconfig"; sourceTree = "<group>"; };
 		F063EF12F476A781C9AA5D02 /* Pods_JinyBookArchive.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_JinyBookArchive.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -102,6 +106,7 @@
 		70C9948A233A0F9F003F7058 /* Helpers */ = {
 			isa = PBXGroup;
 			children = (
+				70C9949D233A24DA003F7058 /* API */,
 				70C99495233A105C003F7058 /* Constants.swift */,
 				70C99499233A1ECF003F7058 /* Defaults.swift */,
 				70C99493233A104B003F7058 /* Extensions.swift */,
@@ -114,6 +119,7 @@
 		70C9948B233A0FB1003F7058 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				70C994A0233A25AC003F7058 /* Book.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -143,13 +149,20 @@
 			path = Views;
 			sourceTree = "<group>";
 		};
+		70C9949D233A24DA003F7058 /* API */ = {
+			isa = PBXGroup;
+			children = (
+				70C9949E233A24E9003F7058 /* APIManager.swift */,
+			);
+			path = API;
+			sourceTree = "<group>";
+		};
 		A82D9A6596913BADA2171472 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
 				50955A84022BF28B5C448B04 /* Pods-JinyBookArchive.debug.xcconfig */,
 				E644CBD533808B0A840B58BF /* Pods-JinyBookArchive.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -286,6 +299,8 @@
 			files = (
 				70C9949A233A1ECF003F7058 /* Defaults.swift in Sources */,
 				70C99490233A1026003F7058 /* Utility.swift in Sources */,
+				70C9949F233A24E9003F7058 /* APIManager.swift in Sources */,
+				70C994A1233A25AC003F7058 /* Book.swift in Sources */,
 				70C99494233A104B003F7058 /* Extensions.swift in Sources */,
 				70C99478233A0E6B003F7058 /* HomeViewController.swift in Sources */,
 				70C99498233A17CB003F7058 /* HomeViewModel.swift in Sources */,

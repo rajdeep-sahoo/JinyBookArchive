@@ -14,11 +14,14 @@ final class Utility {
     
     static let shared = Utility()
     
+    // MARK: - Local Constants
+    let window = UIApplication.shared.windows.last!
+    
+    
     // MARK: - MBProgressHUDs
     func showHUDLoader() {
         DispatchQueue.main.async(execute: {
-            let window = UIApplication.shared.windows.last!
-            let loader = MBProgressHUD.showAdded(to: window, animated: true)
+            let loader = MBProgressHUD.showAdded(to: self.window, animated: true)
             loader.mode = MBProgressHUDMode.indeterminate
         })
     }
@@ -26,8 +29,7 @@ final class Utility {
     
     func hideHUDLoader() {
         DispatchQueue.main.async(execute: {
-            let window = UIApplication.shared.windows.last!
-            MBProgressHUD.hide(for: window, animated: true)
+            MBProgressHUD.hide(for: self.window, animated: true)
         })
     }
     

@@ -38,7 +38,11 @@ extension HomeViewController {
     }
     
     func hitBookListAPI() {
-        
+        APIManager.shared.getRequest(url: BASE_URL, viewController: self, for: BooksList.self, session: URLSession(configuration: URLSessionConfiguration.default), success: { (response) in
+            print(response)
+        }) { (error) in
+            Utility.shared.showAlert(withMessage: error, from: self)
+        }
     }
     
     @objc func refreshBtnTapped() {
