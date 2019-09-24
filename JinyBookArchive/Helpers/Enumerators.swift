@@ -13,3 +13,7 @@ enum FilterType {
 enum UIAlertActionTypeSelected {
     case YES, NO
 }
+
+enum BookInfoKeys: String {
+    case id, bookTitle, authorName, genre, publisher, authorCountry, soldCount, imageUrl, isBookmarked
+}

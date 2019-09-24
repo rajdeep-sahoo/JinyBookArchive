@@ -12,6 +12,9 @@ let APP_NAME                                            = "Jiny Book Archive"
 
 let MAIN_STORYBOARD                                     = "Main"
 
+let CORE_DATA_MODEL                                     = "BooksData"
+let BOOK_ENTITY_NAME                                    = "Books"
+
 let THEME_COLOR                                         = 0x003E79
 let BACKGROUND_COLOR                                    = 0xF9F9F9
 let TEXT_BLACK_COLOR                                    = 0x4A4A4A

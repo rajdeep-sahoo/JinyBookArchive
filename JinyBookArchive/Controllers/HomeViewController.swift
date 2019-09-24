@@ -43,7 +43,7 @@ class HomeViewController: UIViewController {
     
     // MARK: - @IBActions
     @IBAction func createBookLibBtnClicked(_ sender: Any) {
-        hitBookListAPI()
+        createBookArchiveBtnTapped()
     }
 }
 

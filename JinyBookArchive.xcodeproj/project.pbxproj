@@ -35,6 +35,8 @@
 		70C994F2233A7437003F7058 /* FilteredBookArchiveCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 70C994F0233A7437003F7058 /* FilteredBookArchiveCell.xib */; };
 		70C994F4233A80FB003F7058 /* BooksListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70C994F3233A80FB003F7058 /* BooksListViewController.swift */; };
 		70C994F6233A811F003F7058 /* BooksListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70C994F5233A811F003F7058 /* BooksListViewModel.swift */; };
+		70C994F9233AAF0A003F7058 /* BooksData.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 70C994F7233AAF0A003F7058 /* BooksData.xcdatamodeld */; };
+		70C994FC233AC3C1003F7058 /* PersistenceManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70C994FB233AC3C1003F7058 /* PersistenceManager.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -68,6 +70,8 @@
 		70C994F0233A7437003F7058 /* FilteredBookArchiveCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FilteredBookArchiveCell.xib; sourceTree = "<group>"; };
 		70C994F3233A80FB003F7058 /* BooksListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BooksListViewController.swift; sourceTree = "<group>"; };
 		70C994F5233A811F003F7058 /* BooksListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BooksListViewModel.swift; sourceTree = "<group>"; };
+		70C994F8233AAF0A003F7058 /* BooksData.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = BooksData.xcdatamodel; sourceTree = "<group>"; };
+		70C994FB233AC3C1003F7058 /* PersistenceManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersistenceManager.swift; sourceTree = "<group>"; };
 		E644CBD533808B0A840B58BF /* Pods-JinyBookArchive.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-JinyBookArchive.release.xcconfig"; path = "Target Support Files/Pods-JinyBookArchive/Pods-JinyBookArchive.release.xcconfig"; sourceTree = "<group>"; };
 		F063EF12F476A781C9AA5D02 /* Pods_JinyBookArchive.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_JinyBookArchive.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -113,6 +117,7 @@
 				70C9948D233A0FD0003F7058 /* View Models */,
 				70C9948E233A0FDD003F7058 /* Views */,
 				70C99473233A0E6B003F7058 /* AppDelegate.swift */,
+				70C994F7233AAF0A003F7058 /* BooksData.xcdatamodeld */,
 				70C99475233A0E6B003F7058 /* SceneDelegate.swift */,
 				70C99481233A0E6E003F7058 /* Info.plist */,
 			);
@@ -132,6 +137,7 @@
 		70C9948A233A0F9F003F7058 /* Helpers */ = {
 			isa = PBXGroup;
 			children = (
+				70C994FA233AC39E003F7058 /* Persistence Service */,
 				70C9949D233A24DA003F7058 /* API */,
 				70C99495233A105C003F7058 /* Constants.swift */,
 				70C99499233A1ECF003F7058 /* Defaults.swift */,
@@ -199,6 +205,14 @@
 				70C994F0233A7437003F7058 /* FilteredBookArchiveCell.xib */,
 			);
 			path = "Table View Cells";
+			sourceTree = "<group>";
+		};
+		70C994FA233AC39E003F7058 /* Persistence Service */ = {
+			isa = PBXGroup;
+			children = (
+				70C994FB233AC3C1003F7058 /* PersistenceManager.swift */,
+			);
+			path = "Persistence Service";
 			sourceTree = "<group>";
 		};
 		A82D9A6596913BADA2171472 /* Pods */ = {
@@ -353,7 +367,9 @@
 				70C99490233A1026003F7058 /* Utility.swift in Sources */,
 				70C9949F233A24E9003F7058 /* APIManager.swift in Sources */,
 				70C994A1233A25AC003F7058 /* Book.swift in Sources */,
+				70C994F9233AAF0A003F7058 /* BooksData.xcdatamodeld in Sources */,
 				70C99494233A104B003F7058 /* Extensions.swift in Sources */,
+				70C994FC233AC3C1003F7058 /* PersistenceManager.swift in Sources */,
 				70C994E6233A4E3C003F7058 /* BookInfoViewModel.swift in Sources */,
 				70C994F6233A811F003F7058 /* BooksListViewModel.swift in Sources */,
 				70C99478233A0E6B003F7058 /* HomeViewController.swift in Sources */,
@@ -563,6 +579,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		70C994F7233AAF0A003F7058 /* BooksData.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				70C994F8233AAF0A003F7058 /* BooksData.xcdatamodel */,
+			);
+			currentVersion = 70C994F8233AAF0A003F7058 /* BooksData.xcdatamodel */;
+			path = BooksData.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = 70C99468233A0E6B003F7058 /* Project object */;
 }

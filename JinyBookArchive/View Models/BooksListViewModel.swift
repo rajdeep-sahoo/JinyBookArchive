@@ -12,6 +12,7 @@ import UIKit
 extension BooksListViewController {
     
     func setupViews() {
+        self.navigationItem.title = " "
         setupTableView()
     }
     
