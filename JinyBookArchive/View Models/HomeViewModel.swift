@@ -34,10 +34,8 @@ extension HomeViewController {
         if books.count > 0 {
             let refreshBtn = UIBarButtonItem(barButtonSystemItem: .refresh, target: self, action: #selector(refreshBtnTapped))
             refreshBtn.tintColor = UIColor(rgb: THEME_COLOR)
-            
-            let filterBtn = UIButton(frame: CGRect(x: 0, y: 0, width: 50, height: 20))
+            filterBtn.setTitle(NO_FILTER, for: .normal)
             filterBtn.addTarget(self, action: #selector(filterBtnTapped), for: .touchUpInside)
-            filterBtn.setTitle("Filter", for: .normal)
             filterBtn.setTitleColor(UIColor(rgb: THEME_COLOR), for: .normal)
             filterBtn.layer.cornerRadius = 3.0
             filterBtn.layer.masksToBounds = true
@@ -81,7 +79,9 @@ extension HomeViewController {
     }
     
     @objc func filterBtnTapped() {
-        print("Lorem")
+        Utility.shared.delegate = self
+        Utility.shared.dropDown(on: UIBarButtonItem(customView: filterBtn), from: self)
+        
     }
 
 }
@@ -119,6 +119,29 @@ extension HomeViewController: UITableViewDelegate {
     }
     
 }
+
+
+// MARK: - Custom Delegate
+extension HomeViewController: FilterOptionDelegate {
+    
+    func filterOptionSelected(type: FilterType) {
+        switch type {
+        case .NoFilter:
+            filterBtn.setTitle(NO_FILTER, for: .normal)
+        case .Genre:
+            filterBtn.setTitle(GENRE, for: .normal)
+        case .Country:
+            filterBtn.setTitle(COUNTRY, for: .normal)
+        case .Author:
+            filterBtn.setTitle(AUTHOR, for: .normal)
+        default:
+            break
+        }
+        
+    }
+    
+}
+
 
 // MARK: - Routes
 extension HomeViewController {

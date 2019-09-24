@@ -29,6 +29,8 @@
 		70C994E6233A4E3C003F7058 /* BookInfoViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70C994E5233A4E3C003F7058 /* BookInfoViewModel.swift */; };
 		70C994E9233A56D9003F7058 /* BookDetailCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70C994E7233A56D9003F7058 /* BookDetailCell.swift */; };
 		70C994EA233A56D9003F7058 /* BookDetailCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 70C994E8233A56D9003F7058 /* BookDetailCell.xib */; };
+		70C994EC233A6B09003F7058 /* Enumerators.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70C994EB233A6B09003F7058 /* Enumerators.swift */; };
+		70C994EE233A6BFC003F7058 /* Protocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70C994ED233A6BFC003F7058 /* Protocols.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -56,6 +58,8 @@
 		70C994E5233A4E3C003F7058 /* BookInfoViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookInfoViewModel.swift; sourceTree = "<group>"; };
 		70C994E7233A56D9003F7058 /* BookDetailCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookDetailCell.swift; sourceTree = "<group>"; };
 		70C994E8233A56D9003F7058 /* BookDetailCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = BookDetailCell.xib; sourceTree = "<group>"; };
+		70C994EB233A6B09003F7058 /* Enumerators.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Enumerators.swift; sourceTree = "<group>"; };
+		70C994ED233A6BFC003F7058 /* Protocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Protocols.swift; sourceTree = "<group>"; };
 		E644CBD533808B0A840B58BF /* Pods-JinyBookArchive.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-JinyBookArchive.release.xcconfig"; path = "Target Support Files/Pods-JinyBookArchive/Pods-JinyBookArchive.release.xcconfig"; sourceTree = "<group>"; };
 		F063EF12F476A781C9AA5D02 /* Pods_JinyBookArchive.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_JinyBookArchive.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -122,7 +126,9 @@
 				70C9949D233A24DA003F7058 /* API */,
 				70C99495233A105C003F7058 /* Constants.swift */,
 				70C99499233A1ECF003F7058 /* Defaults.swift */,
+				70C994EB233A6B09003F7058 /* Enumerators.swift */,
 				70C99493233A104B003F7058 /* Extensions.swift */,
+				70C994ED233A6BFC003F7058 /* Protocols.swift */,
 				70C99491233A1037003F7058 /* Strings.swift */,
 				70C9948F233A1026003F7058 /* Utility.swift */,
 			);
@@ -303,6 +309,7 @@
 			);
 			inputPaths = (
 				"${PODS_ROOT}/Target Support Files/Pods-JinyBookArchive/Pods-JinyBookArchive-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/DropDown/DropDown.framework",
 				"${BUILT_PRODUCTS_DIR}/Kingfisher/Kingfisher.framework",
 				"${BUILT_PRODUCTS_DIR}/MBProgressHUD/MBProgressHUD.framework",
 			);
@@ -310,6 +317,7 @@
 			outputFileListPaths = (
 			);
 			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/DropDown.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Kingfisher.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MBProgressHUD.framework",
 			);
@@ -326,6 +334,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				70C994E9233A56D9003F7058 /* BookDetailCell.swift in Sources */,
+				70C994EC233A6B09003F7058 /* Enumerators.swift in Sources */,
 				70C9949A233A1ECF003F7058 /* Defaults.swift in Sources */,
 				70C99490233A1026003F7058 /* Utility.swift in Sources */,
 				70C9949F233A24E9003F7058 /* APIManager.swift in Sources */,
@@ -339,6 +348,7 @@
 				70C994E1233A3FFC003F7058 /* BookInfoCell.swift in Sources */,
 				70C99496233A105C003F7058 /* Constants.swift in Sources */,
 				70C99474233A0E6B003F7058 /* AppDelegate.swift in Sources */,
+				70C994EE233A6BFC003F7058 /* Protocols.swift in Sources */,
 				70C99476233A0E6B003F7058 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -10,6 +10,7 @@ import UIKit
 import SystemConfiguration
 import MBProgressHUD
 import Kingfisher
+import DropDown
 
 final class Utility {
     
@@ -19,6 +20,51 @@ final class Utility {
     
     // MARK: - Local Constants
     let window = UIApplication.shared.windows.last!
+    var delegate: FilterOptionDelegate?
+    
+    // MARK: - Drop Down Helper
+    func dropDownUI() -> DropDown {
+        let dropDown = DropDown()
+        dropDown.cellHeight = 40
+        dropDown.textColor = UIColor(rgb: TEXT_BLACK_COLOR)
+        dropDown.backgroundColor = UIColor(rgb: BACKGROUND_COLOR)
+        return dropDown
+    }
+    
+    func addWhiteSpaceToDropDown(dataSource: [String]) -> [String] {
+        return dataSource.map { "  " + $0 }
+    }
+    
+    func dropDown(on view: UIBarButtonItem, from viewController: UIViewController) {
+        let dropDown = dropDownUI()
+        let leftPadding = "    "
+        dropDown.anchorView = view
+        dropDown.bottomOffset = CGPoint(x: 0, y:(dropDown.anchorView?.plainView.bounds.height)! + 2)
+        dropDown.width = 150
+        
+        dropDown.dataSource = [leftPadding + AUTHOR, leftPadding + GENRE, leftPadding + COUNTRY, leftPadding + NO_FILTER]
+        
+        dropDown.selectionAction = { (index: Int, item: String) in
+            switch item.trimmingCharacters(in: .whitespaces) {
+                
+            case AUTHOR:
+                self.delegate?.filterOptionSelected(type: .Author)
+                
+            case GENRE:
+                self.delegate?.filterOptionSelected(type: .Genre)
+                
+            case COUNTRY:
+                self.delegate?.filterOptionSelected(type: .Country)
+                
+            case NO_FILTER:
+                self.delegate?.filterOptionSelected(type: .NoFilter)
+                
+            default:
+                break
+            }
+        }
+        dropDown.show()
+    }
     
     
     // MARK: - MBProgressHUDs

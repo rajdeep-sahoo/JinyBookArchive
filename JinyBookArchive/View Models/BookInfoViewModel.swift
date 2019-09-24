@@ -36,13 +36,13 @@ extension BookInfoViewController: UITableViewDataSource {
         
         switch indexPath.row {
         case 0:
-            cell.detailLbl.text = AUTHOR_NAME
+            cell.detailLbl.text = AUTHOR
             cell.infoLbl.text = book.authorName
         case 1:
             cell.detailLbl.text = GENRE
             cell.infoLbl.text = book.genre
         case 2:
-            cell.detailLbl.text = FROM
+            cell.detailLbl.text = COUNTRY
             cell.infoLbl.text = book.authorCountry
         case 3:
             cell.detailLbl.text = PUBLISHER

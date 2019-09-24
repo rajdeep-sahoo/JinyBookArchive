@@ -8,5 +8,6 @@ target 'JinyBookArchive' do
   # Pods for JinyBookArchive
   pod 'MBProgressHUD'
   pod 'Kingfisher'
+  pod 'DropDown'
 
 end

@@ -18,6 +18,8 @@ class HomeViewController: UIViewController {
     var books = [Book]()
     let reuseId = "BookInfoCell"
     
+    let filterBtn = UIButton(frame: CGRect(x: 0, y: 0, width: 50, height: 20))
+    
     // MARK: - Life Cycle Methods
     override func viewDidLoad() {
         super.viewDidLoad()

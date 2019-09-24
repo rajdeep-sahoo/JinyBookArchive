@@ -14,9 +14,10 @@ let NO_INTERNET_AVAILABLE                               = "Please check your int
 
 let HOME_SCREEN_TITLE                                   = "Books Archive"
 
-let AUTHOR_NAME                                         = "Author Name"
+let AUTHOR                                              = "Author"
 let GENRE                                               = "Genre"
-let FROM                                                = "From"
+let COUNTRY                                             = "Country"
 let PUBLISHER                                           = "Publisher"
 let SOLD                                                = "Sold"
 let UNITS                                               = "Units"
+let NO_FILTER                                           = "No Filter"
