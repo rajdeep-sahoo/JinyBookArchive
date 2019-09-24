@@ -12,9 +12,14 @@ import UIKit
 extension HomeViewController {
     
     func setupViews() {
-        setupNavigationBar()
+        self.navigationItem.title = HOME_SCREEN_TITLE
         setupTableView()
         createBookLibraryButton.isHidden = false
+        createBookLibraryButton.setTitleColor(UIColor(rgb: THEME_COLOR), for: .normal)
+    }
+    
+    func refreshView() {
+        setupNavigationBar()
     }
     
     func setupTableView() {
@@ -22,7 +27,6 @@ extension HomeViewController {
     }
     
     func setupNavigationBar() {
-        self.navigationController?.navigationBar.setItems([UINavigationItem(title: HOME_SCREEN_TITLE)], animated: false)
         self.setupNavigationBarButtons()
     }
     
@@ -38,7 +42,9 @@ extension HomeViewController {
             filterBtn.layer.cornerRadius = 3.0
             filterBtn.layer.masksToBounds = true
 
-            self.navigationController?.navigationBar.topItem?.rightBarButtonItems = [refreshBtn, UIBarButtonItem(customView: filterBtn)]
+            self.navigationController?.navigationBar.topItem?.rightBarButtonItem = UIBarButtonItem(customView: filterBtn)
+            self.navigationController?.navigationBar.topItem?.leftBarButtonItem = refreshBtn
+
         }
     }
     
@@ -109,8 +115,26 @@ extension HomeViewController: UITableViewDataSource {
 extension HomeViewController: UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        
+        pushToBookInfoVC(book: books[indexPath.row])
     }
     
 }
+
+// MARK: - Routes
+extension HomeViewController {
+    
+    func pushToBookInfoVC(book: Book) {
+        DispatchQueue.main.async {
+            let storyboard: UIStoryboard = UIStoryboard(name: MAIN_STORYBOARD, bundle: nil)
+            let bookInfoVC = storyboard.instantiateViewController(withIdentifier: "BookInfoViewController") as! BookInfoViewController
+            bookInfoVC.book = book
+            self.navigationController?.pushViewController(bookInfoVC, animated: true)
+        }
+    }
+    
+}
+
+
+
+
 

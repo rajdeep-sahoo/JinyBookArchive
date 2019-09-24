@@ -27,6 +27,8 @@
 		70C994E2233A3FFC003F7058 /* BookInfoCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 70C994E0233A3FFC003F7058 /* BookInfoCell.xib */; };
 		70C994E4233A4E25003F7058 /* BookInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70C994E3233A4E25003F7058 /* BookInfoViewController.swift */; };
 		70C994E6233A4E3C003F7058 /* BookInfoViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70C994E5233A4E3C003F7058 /* BookInfoViewModel.swift */; };
+		70C994E9233A56D9003F7058 /* BookDetailCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70C994E7233A56D9003F7058 /* BookDetailCell.swift */; };
+		70C994EA233A56D9003F7058 /* BookDetailCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 70C994E8233A56D9003F7058 /* BookDetailCell.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -52,6 +54,8 @@
 		70C994E0233A3FFC003F7058 /* BookInfoCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = BookInfoCell.xib; sourceTree = "<group>"; };
 		70C994E3233A4E25003F7058 /* BookInfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookInfoViewController.swift; sourceTree = "<group>"; };
 		70C994E5233A4E3C003F7058 /* BookInfoViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookInfoViewModel.swift; sourceTree = "<group>"; };
+		70C994E7233A56D9003F7058 /* BookDetailCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookDetailCell.swift; sourceTree = "<group>"; };
+		70C994E8233A56D9003F7058 /* BookDetailCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = BookDetailCell.xib; sourceTree = "<group>"; };
 		E644CBD533808B0A840B58BF /* Pods-JinyBookArchive.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-JinyBookArchive.release.xcconfig"; path = "Target Support Files/Pods-JinyBookArchive/Pods-JinyBookArchive.release.xcconfig"; sourceTree = "<group>"; };
 		F063EF12F476A781C9AA5D02 /* Pods_JinyBookArchive.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_JinyBookArchive.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -173,6 +177,8 @@
 			children = (
 				70C994DF233A3FFC003F7058 /* BookInfoCell.swift */,
 				70C994E0233A3FFC003F7058 /* BookInfoCell.xib */,
+				70C994E7233A56D9003F7058 /* BookDetailCell.swift */,
+				70C994E8233A56D9003F7058 /* BookDetailCell.xib */,
 			);
 			path = "Table View Cells";
 			sourceTree = "<group>";
@@ -255,6 +261,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				70C99480233A0E6E003F7058 /* LaunchScreen.storyboard in Resources */,
+				70C994EA233A56D9003F7058 /* BookDetailCell.xib in Resources */,
 				70C9947D233A0E6E003F7058 /* Assets.xcassets in Resources */,
 				70C99488233A0ED7003F7058 /* README.md in Resources */,
 				70C9947B233A0E6B003F7058 /* Main.storyboard in Resources */,
@@ -318,6 +325,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				70C994E9233A56D9003F7058 /* BookDetailCell.swift in Sources */,
 				70C9949A233A1ECF003F7058 /* Defaults.swift in Sources */,
 				70C99490233A1026003F7058 /* Utility.swift in Sources */,
 				70C9949F233A24E9003F7058 /* APIManager.swift in Sources */,
