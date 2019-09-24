@@ -15,13 +15,19 @@ class BookDetailCell: UITableViewCell {
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        // Initialization code
+        
+        setupCell()
     }
+        
+}
 
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
-
-        // Configure the view for the selected state
+extension BookDetailCell {
+    
+    func setupCell() {
+        detailLbl.textColor = UIColor(rgb: TEXT_BLACK_COLOR)
+        infoLbl.textColor = UIColor(rgb: TEXT_BLACK_COLOR)
     }
     
 }
+
+

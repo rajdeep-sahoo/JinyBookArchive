@@ -16,9 +16,10 @@ class HomeViewController: UIViewController {
     
     // MARK: - Local Variables
     var books = [Book]()
-    let reuseId = "BookInfoCell"
+    var filteredBookArchive: [String: [Book]] = [String: [Book]]()
     
     let filterBtn = UIButton(frame: CGRect(x: 0, y: 0, width: 50, height: 20))
+    var filterSelected: FilterType = .NoFilter
     
     // MARK: - Life Cycle Methods
     override func viewDidLoad() {

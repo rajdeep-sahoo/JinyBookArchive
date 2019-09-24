@@ -23,7 +23,9 @@ extension HomeViewController {
     }
     
     func setupTableView() {
-        tableView?.register(UINib(nibName: "BookInfoCell", bundle: nil), forCellReuseIdentifier: reuseId)
+        tableView?.register(UINib(nibName: "BookInfoCell", bundle: nil), forCellReuseIdentifier: "BookInfoCell")
+        tableView?.register(UINib(nibName: "FilteredBookArchiveCell", bundle: nil), forCellReuseIdentifier: "FilteredBookArchiveCell")
+        
     }
     
     func setupNavigationBar() {
@@ -34,7 +36,7 @@ extension HomeViewController {
         if books.count > 0 {
             let refreshBtn = UIBarButtonItem(barButtonSystemItem: .refresh, target: self, action: #selector(refreshBtnTapped))
             refreshBtn.tintColor = UIColor(rgb: THEME_COLOR)
-            filterBtn.setTitle(NO_FILTER, for: .normal)
+            filterOptionSelected(type: filterSelected)
             filterBtn.addTarget(self, action: #selector(filterBtnTapped), for: .touchUpInside)
             filterBtn.setTitleColor(UIColor(rgb: THEME_COLOR), for: .normal)
             filterBtn.layer.cornerRadius = 3.0
@@ -73,8 +75,54 @@ extension HomeViewController {
         }
     }
     
+    func filterList(filterType: FilterType) {
+        
+        var dictionary: [String: [Book]] = [String: [Book]]()
+        
+        switch filterType {
+        case .NoFilter:
+            break
+        case .Author:
+            for book in books {
+                let key = String(book.authorName.uppercased())
+                if var contacts = dictionary[key] {
+                    contacts.append(book)
+                    dictionary[key] = contacts
+                } else {
+                    dictionary[key] = [book]
+                }
+            }
+        case .Country:
+            for book in books {
+                let key = String(book.authorCountry.uppercased())
+                if var contacts = dictionary[key] {
+                    contacts.append(book)
+                    dictionary[key] = contacts
+                } else {
+                    dictionary[key] = [book]
+                }
+            }
+        case .Genre:
+            for book in books {
+                let key = String(book.genre.uppercased())
+                if var contacts = dictionary[key] {
+                    contacts.append(book)
+                    dictionary[key] = contacts
+                } else {
+                    dictionary[key] = [book]
+                }
+            }
+        }
+        
+        filteredBookArchive = dictionary
+        
+        self.tableView.reloadData()
+    }
+    
     
     @objc func refreshBtnTapped() {
+        filterSelected = .NoFilter
+        filterOptionSelected(type: filterSelected)
         hitBookListAPI()
     }
     
@@ -91,17 +139,30 @@ extension HomeViewController {
 extension HomeViewController: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: reuseId, for: indexPath) as! BookInfoCell
-        Utility.shared.setImage(from: books[indexPath.row].imageUrl, on: cell.bookImageView)
-        cell.bookTitleLbl.text = books[indexPath.row].bookTitle
-        cell.bookAuthorLbl.text = books[indexPath.row].authorName
-        cell.bookGenreLbl.text = books[indexPath.row].genre
-        return cell
+        
+        if filterSelected == .NoFilter {
+            
+            let cell = tableView.dequeueReusableCell(withIdentifier: "BookInfoCell", for: indexPath) as! BookInfoCell
+            Utility.shared.setImage(from: books[indexPath.row].imageUrl, on: cell.bookImageView)
+            cell.bookTitleLbl.text = books[indexPath.row].bookTitle
+            cell.bookAuthorLbl.text = books[indexPath.row].authorName
+            cell.bookGenreLbl.text = books[indexPath.row].genre
+            return cell
+            
+        } else {
+            let cell = tableView.dequeueReusableCell(withIdentifier: "FilteredBookArchiveCell", for: indexPath) as! FilteredBookArchiveCell
+            cell.label.text = Array(filteredBookArchive.keys)[indexPath.row].capitalized
+            return cell
+        }
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        if filterSelected == .NoFilter {
+            return books.count
+        } else {
+            return filteredBookArchive.keys.count
+        }
         
-        return books.count
     }
     
     func tableView(_ tableView: UITableView, estimatedHeightForRowAt indexPath: IndexPath) -> CGFloat {
@@ -115,7 +176,12 @@ extension HomeViewController: UITableViewDataSource {
 extension HomeViewController: UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        pushToBookInfoVC(book: books[indexPath.row])
+        if filterSelected == .NoFilter {
+            pushToBookInfoVC(book: books[indexPath.row])
+        } else {
+            
+        }
+        
     }
     
 }
@@ -134,10 +200,9 @@ extension HomeViewController: FilterOptionDelegate {
             filterBtn.setTitle(COUNTRY, for: .normal)
         case .Author:
             filterBtn.setTitle(AUTHOR, for: .normal)
-        default:
-            break
         }
-        
+        filterSelected = type
+        filterList(filterType: filterSelected)
     }
     
 }
