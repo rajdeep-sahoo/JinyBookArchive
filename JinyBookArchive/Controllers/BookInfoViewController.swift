@@ -1,5 +1,5 @@
 //
-//  HomeViewController.swift
+//  BookInfoViewController.swift
 //  JinyBookArchive
 //
 //  Created by Rajdeep Sahoo on 24/09/19.
@@ -8,15 +8,11 @@
 
 import UIKit
 
-class HomeViewController: UIViewController {
+class BookInfoViewController: UIViewController {
 
     // MARK: - @IBOutlets
-    @IBOutlet weak var createBookLibraryButton: UIButton!
-    @IBOutlet weak var tableView: UITableView!
     
     // MARK: - Local Variables
-    var books = [Book]()
-    let reuseId = "BookInfoCell"
     
     // MARK: - Life Cycle Methods
     override func viewDidLoad() {
@@ -26,8 +22,6 @@ class HomeViewController: UIViewController {
     }
     
     // MARK: - @IBActions
-    @IBAction func createBookLibBtnClicked(_ sender: Any) {
-        hitBookListAPI()
-    }
+    
 }
 

@@ -8,6 +8,16 @@
 
 import UIKit
 
+extension UIImageView {
+    public func maskBorder(borderWidth: CGFloat, borderColor: CGColor) {
+        self.contentMode = .scaleAspectFit
+        self.layer.masksToBounds = false
+        self.layer.borderWidth = borderWidth
+        self.layer.borderColor = borderColor
+        self.clipsToBounds = true
+    }
+}
+
 extension UIColor {
     convenience init(red: Int, green: Int, blue: Int) {
         assert(red >= 0 && red <= 255, "Invalid red component")

@@ -10,6 +10,8 @@ import UIKit
 
 final class APIManager {
     
+    private init() {}
+    
     static let shared = APIManager()
     
     private func serverSideErrors(response: HTTPURLResponse, data: Data) -> String? {

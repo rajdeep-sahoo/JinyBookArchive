@@ -9,8 +9,11 @@
 import UIKit
 import SystemConfiguration
 import MBProgressHUD
+import Kingfisher
 
 final class Utility {
+    
+    private init() {}
     
     static let shared = Utility()
     
@@ -41,6 +44,20 @@ final class Utility {
             alert.addAction(UIAlertAction(title: OK, style: UIAlertAction.Style.default, handler: nil))
             viewController.present(alert, animated: true, completion: nil)
         }
+    }
+    
+    
+    // MARK: - Image View Helper
+    func setImage(from urlOfImage: String, on imageView: UIImageView) {
+        guard let url = URL(string: urlOfImage) else { return }
+        imageView.kf.setImage(
+            with: url,
+            options: [
+                .scaleFactor(UIScreen.main.scale),
+                .transition(.fade(0.5)),
+                .cacheOriginalImage
+            ]
+        )
     }
     
     // MARK: - Network Helper

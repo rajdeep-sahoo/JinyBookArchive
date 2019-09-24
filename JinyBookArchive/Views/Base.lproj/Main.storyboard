@@ -15,16 +15,38 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tK7-5h-qwR">
-                                <rect key="frame" x="137" y="269" width="46" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Button"/>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="NBG-QT-BPJ">
+                                <rect key="frame" x="0.0" y="44" width="320" height="524"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                <connections>
+                                    <outlet property="dataSource" destination="BYZ-38-t0r" id="2fN-5m-IoC"/>
+                                    <outlet property="delegate" destination="BYZ-38-t0r" id="nDF-Js-5jk"/>
+                                </connections>
+                            </tableView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tK7-5h-qwR">
+                                <rect key="frame" x="92" y="269" width="136" height="30"/>
+                                <state key="normal" title="Create Book Library"/>
+                                <connections>
+                                    <action selector="createBookLibBtnClicked:" destination="BYZ-38-t0r" eventType="touchUpInside" id="lbJ-es-uWR"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="NBG-QT-BPJ" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="0U9-YL-Qdf"/>
+                            <constraint firstItem="NBG-QT-BPJ" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="4Ko-xS-88W"/>
+                            <constraint firstItem="tK7-5h-qwR" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="Kci-L2-WpB"/>
+                            <constraint firstItem="tK7-5h-qwR" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="RYm-lD-6cD"/>
+                            <constraint firstItem="NBG-QT-BPJ" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="ntA-7Y-iGi"/>
+                            <constraint firstItem="NBG-QT-BPJ" firstAttribute="bottom" secondItem="6Tk-OE-BBY" secondAttribute="bottom" id="ycm-Bg-qw1"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <navigationItem key="navigationItem" id="MiI-Id-QKS"/>
+                    <connections>
+                        <outlet property="createBookLibraryButton" destination="tK7-5h-qwR" id="kbF-dV-uAm"/>
+                        <outlet property="tableView" destination="NBG-QT-BPJ" id="gfE-IK-ai3"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
