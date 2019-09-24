@@ -16,3 +16,5 @@ let THEME_COLOR                                         = 0x003E79
 let BACKGROUND_COLOR                                    = 0xF9F9F9
 let TEXT_BLACK_COLOR                                    = 0x4A4A4A
 let TEXT_GRAY_COLOR                                     = 0xC0C0C0
+
+let BOOKMARKED_COLOR                                    = 0xFFF8DC

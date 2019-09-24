@@ -26,7 +26,7 @@ class BookInfoCell: UITableViewCell {
 extension BookInfoCell {
     
     func setupCell() {
-        bookImageView.maskBorder(borderWidth: 0.5, borderColor: UIColor(rgb: TEXT_BLACK_COLOR).cgColor)
+        bookImageView.maskBorder(borderWidth: 0.5, borderColor: UIColor(rgb: TEXT_GRAY_COLOR).cgColor)
         bookTitleLbl.textColor = UIColor(rgb: TEXT_BLACK_COLOR)
         bookAuthorLbl.textColor = UIColor(rgb: TEXT_BLACK_COLOR)
         bookGenreLbl.textColor = UIColor(rgb: TEXT_GRAY_COLOR)

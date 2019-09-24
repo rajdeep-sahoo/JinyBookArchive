@@ -16,7 +16,6 @@ extension BookInfoViewController {
         setupNavigationBar()
         setupTableView()
         Utility.shared.setImage(from: book.imageUrl, on: bookImage)
-        bookTitle.text = book.bookTitle
     }
     
     func setupTableView() {

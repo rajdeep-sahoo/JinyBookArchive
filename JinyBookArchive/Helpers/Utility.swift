@@ -84,6 +84,23 @@ final class Utility {
     
     
     // MARK: - UIAlerts
+    func showAlertWithYESNOAction(withMessage message: String, from viewController: UIViewController, completion: @escaping (UIAlertActionTypeSelected) -> Void) {
+        DispatchQueue.main.async {
+            let alert = UIAlertController(title: APP_NAME, message: message, preferredStyle: UIAlertController.Style.alert)
+            
+            alert.addAction(UIAlertAction(title: NO, style: UIAlertAction.Style.default, handler: {(alert: UIAlertAction!) in
+                completion(UIAlertActionTypeSelected.NO)
+            }))
+            
+            alert.addAction(UIAlertAction(title: YES, style: UIAlertAction.Style.default, handler: {(alert: UIAlertAction!) in
+                completion(UIAlertActionTypeSelected.YES)
+            }))
+            
+            viewController.present(alert, animated: true, completion: nil)
+        }
+    }
+    
+    
     func showAlert(withMessage message: String, from viewController: UIViewController) {
         DispatchQueue.main.async {
             let alert = UIAlertController(title: APP_NAME, message: message, preferredStyle: UIAlertController.Style.alert)

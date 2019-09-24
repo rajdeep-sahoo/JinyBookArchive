@@ -9,3 +9,7 @@
 enum FilterType {
     case Author, Genre, Country, NoFilter
 }
+
+enum UIAlertActionTypeSelected {
+    case YES, NO
+}

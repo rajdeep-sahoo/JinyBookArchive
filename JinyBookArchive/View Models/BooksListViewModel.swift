@@ -31,6 +31,13 @@ extension BooksListViewController: UITableViewDataSource {
         cell.bookTitleLbl.text = books[indexPath.row].bookTitle
         cell.bookAuthorLbl.text = books[indexPath.row].authorName
         cell.bookGenreLbl.text = books[indexPath.row].genre
+        
+        if let bookmarkStatus = books[indexPath.row].isBookmarked {
+            cell.backgroundColor = bookmarkStatus ? UIColor(rgb: BOOKMARKED_COLOR) : .white
+        } else {
+            cell.backgroundColor = .white
+        }
+        
         return cell
     }
     

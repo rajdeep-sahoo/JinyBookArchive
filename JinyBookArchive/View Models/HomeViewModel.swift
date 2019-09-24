@@ -13,8 +13,11 @@ extension HomeViewController {
     
     func setupViews() {
         setupTableView()
+        createBookLibraryButton.setTitle(CREATE_BOOK_LIBRARY, for: .normal)
+        createBookLibraryButton.layer.cornerRadius = 3
         createBookLibraryButton.isHidden = false
-        createBookLibraryButton.setTitleColor(UIColor(rgb: THEME_COLOR), for: .normal)
+        createBookLibraryButton.setTitleColor(.white, for: .normal)
+        createBookLibraryButton.backgroundColor = UIColor(rgb: THEME_COLOR)
     }
     
     func refreshView() {
@@ -58,12 +61,26 @@ extension HomeViewController {
     func hitBookListAPI() {
         APIManager.shared.getRequest(url: BASE_URL, viewController: self, for: BooksList.self, session: URLSession(configuration: URLSessionConfiguration.default), success: { (response) in
             
-            self.books = response.list
+            self.setBooksDataSource(responseBooks: response.list)
             
             self.setupViewAfterFetchingBooksArchive()
             
         }) { (error) in
             Utility.shared.showAlert(withMessage: error, from: self)
+        }
+    }
+    
+    func setBooksDataSource(responseBooks: [Book]) {
+        DispatchQueue.main.async {
+            if self.books.count == 0 {
+                self.books = responseBooks
+            } else {
+                for responseBook in responseBooks {
+                    if self.books.contains(where: {$0.id == responseBook.id}) == false {
+                        self.books.append(responseBook)
+                    }
+                }
+            }
         }
     }
     
@@ -126,6 +143,28 @@ extension HomeViewController {
         self.tableView.reloadData()
     }
     
+    func deleteBook(indexPath: IndexPath) {
+        
+        Utility.shared.showAlertWithYESNOAction(withMessage: DELETE_WARNING, from: self) { (status) in
+            switch status {
+            case .YES:
+                self.books.remove(at: indexPath.row)
+                self.tableView.reloadData()
+            case .NO:
+                break
+            }
+        }
+        
+    }
+    
+    func setBookmarkStatus(indexPath: IndexPath) {
+        if books[indexPath.row].isBookmarked == nil {
+            books[indexPath.row].isBookmarked = true
+        } else if let isBookmarked = books[indexPath.row].isBookmarked {
+            books[indexPath.row].isBookmarked = !isBookmarked
+        }
+        tableView.reloadRows(at: [indexPath], with: .none)
+    }
     
     @objc func refreshBtnTapped() {
         filterSelected = .NoFilter
@@ -154,6 +193,13 @@ extension HomeViewController: UITableViewDataSource {
             cell.bookTitleLbl.text = books[indexPath.row].bookTitle
             cell.bookAuthorLbl.text = books[indexPath.row].authorName
             cell.bookGenreLbl.text = books[indexPath.row].genre
+            
+            if let bookmarkStatus = books[indexPath.row].isBookmarked {
+                cell.backgroundColor = bookmarkStatus ? UIColor(rgb: BOOKMARKED_COLOR) : .white
+            } else {
+                cell.backgroundColor = .white
+            }
+            
             return cell
             
         } else {
@@ -161,6 +207,51 @@ extension HomeViewController: UITableViewDataSource {
             cell.label.text = filteredBookArchiveData[indexPath.row].capitalized
             return cell
         }
+    }
+    
+    func tableView(_ tableView: UITableView, leadingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
+        
+        if filterSelected == .NoFilter {
+            let deleteAction = UIContextualAction(style: .normal, title: DELETE, handler: { (ac: UIContextualAction, view: UIView, success: (Bool) -> Void) in
+                
+                self.deleteBook(indexPath: indexPath)
+                
+                success(true)
+            })
+            deleteAction.backgroundColor = .red
+            
+            return UISwipeActionsConfiguration(actions: [deleteAction])
+        }
+        
+        return nil
+        
+    }
+    
+    func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
+        
+        if filterSelected == .NoFilter {
+            
+            var isBookmark = false
+            
+            if books[indexPath.row].isBookmarked == nil {
+                isBookmark = false
+            } else if let isBookmarked = books[indexPath.row].isBookmarked {
+                isBookmark = isBookmarked
+            }
+            
+            let bookmarkAction = UIContextualAction(style: .normal, title: isBookmark ? REMOVE_BOOKMARK : BOOKMARK, handler: { (ac: UIContextualAction, view: UIView, success: (Bool) -> Void) in
+                
+                self.setBookmarkStatus(indexPath: indexPath)
+                
+                success(true)
+            })
+            bookmarkAction.backgroundColor = isBookmark ? .orange : .blue
+            
+            return UISwipeActionsConfiguration(actions: [bookmarkAction])
+        }
+        
+        return nil
+        
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {

@@ -12,6 +12,7 @@ extension UIImageView {
     public func maskBorder(borderWidth: CGFloat, borderColor: CGColor) {
         self.contentMode = .scaleAspectFit
         self.layer.masksToBounds = false
+        self.layer.cornerRadius = 3
         self.layer.borderWidth = borderWidth
         self.layer.borderColor = borderColor
         self.clipsToBounds = true

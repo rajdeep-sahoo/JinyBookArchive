@@ -15,9 +15,10 @@ struct Book: Decodable {
     var authorCountry: String
     var soldCount: Int
     let imageUrl: String
+    var isBookmarked: Bool?
 
     private enum CodingKeys: String, CodingKey {
-        case id, genre, publisher
+        case id, genre, publisher, isBookmarked
         case bookTitle = "book_title", authorName = "author_name", authorCountry = "author_country", soldCount = "sold_count", imageUrl = "image_url"
     }
 }
