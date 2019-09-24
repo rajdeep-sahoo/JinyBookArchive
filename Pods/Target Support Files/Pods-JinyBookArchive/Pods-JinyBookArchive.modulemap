@@ -1,0 +1,6 @@
+framework module Pods_JinyBookArchive {
+  umbrella header "Pods-JinyBookArchive-umbrella.h"
+
+  export *
+  module * { export * }
+}

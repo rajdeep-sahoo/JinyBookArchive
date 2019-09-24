@@ -8,10 +8,29 @@
 
 import UIKit
 import SystemConfiguration
+import MBProgressHUD
 
 final class Utility {
     
     static let shared = Utility()
+    
+    // MARK: - MBProgressHUDs
+    func showHUDLoader() {
+        DispatchQueue.main.async(execute: {
+            let window = UIApplication.shared.windows.last!
+            let loader = MBProgressHUD.showAdded(to: window, animated: true)
+            loader.mode = MBProgressHUDMode.indeterminate
+        })
+    }
+    
+    
+    func hideHUDLoader() {
+        DispatchQueue.main.async(execute: {
+            let window = UIApplication.shared.windows.last!
+            MBProgressHUD.hide(for: window, animated: true)
+        })
+    }
+    
     
     // MARK: - UIAlerts
     func showAlert(withMessage message: String, from viewController: UIViewController) {
